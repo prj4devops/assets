@@ -1,4 +1,3 @@
-helm repo update
 helm install jenkins \
 --set persistence.existingClaim=jenkins \
 --set master.adminPassword=admin \
