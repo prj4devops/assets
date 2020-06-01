@@ -1,0 +1,46 @@
+podTemplate(containers: [
+    containerTemplate(
+      name: 'maven',
+      image: 'maven:3-jdk-8',
+      resourceLimitMemory: '300Mi',
+      envVars: [
+        envVar(key: 'MAVEN_OPTS', value: '-Xmx300m')
+      ],
+      command: 'cat',      
+      ttyEnabled: true
+    ),
+    containerTemplate(
+      name: 'docker-git',
+      image: 'docker:18.09-git',
+      resourceLimitMemory: '200Mi',
+      command: 'cat',
+      ttyEnabled: true
+    ),
+  ],
+  volumes: [ 
+    hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'), 
+  ]
+) {
+    node(POD_LABEL) { 
+        stage('Clone repository from git') {
+            container('docker-git') {
+                git 'https://github.com/prj4devops/echo-buildtime.git'
+            }
+        }
+        
+        stage('build java') {
+            container('maven') {
+                sh 'mvn package -DskipTests'
+                sh 'printenv'
+            }
+        }
+        
+        stage('docker image build') {
+            container('docker-git') {
+                def customImage = docker.build("192.168.1.10:8443/echo-buildtime:${env.BUILD_ID}")
+                customImage.push()
+                customImage.push('latest')
+            }
+        }
+    }
+}
