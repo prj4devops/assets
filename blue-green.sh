@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "----- before deploy"
 export deploy=$1
 cd deployment
+echo "----- before deploy"
 kustomize edit add label deploy:$deploy -f
 kustomize edit set namesuffix -- -$deploy
 kustomize edit set image 192.168.1.101:8443/echo-buildtime:$deploy
