@@ -21,7 +21,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-weight: "30"
-spec:
+  spec:
   rules:
   - http:
       paths:
@@ -29,4 +29,3 @@ spec:
         backend:
           serviceName: hname-canary
           servicePort: 80
-
