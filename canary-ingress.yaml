@@ -10,8 +10,8 @@ spec:
       paths:
       - path:
         backend:
-          serviceName: old-buildtime
-          servicePort: 18080
+          serviceName: hname-prod
+          servicePort: 80
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
@@ -27,5 +27,5 @@ spec:
       paths:
       - path:
         backend:
-          serviceName: new-buildtime
-          servicePort: 18080
+          serviceName: hname-canary
+          servicePort: 80
