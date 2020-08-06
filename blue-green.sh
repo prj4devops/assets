@@ -3,7 +3,7 @@ cd deployment
 echo "----- before deploy"
 kustomize edit add label deploy:$1 -f
 kustomize edit set namesuffix -- -$1
-kustomize edit set image 192.168.1.101:8443/echo-buildtime:$1
+kustomize edit set image 192.168.1.10:8443/echo-buildtime:$1
 kustomize build . | kubectl apply -f -
 echo "----- after new deploy"
 kubectl get deployment -o wide
