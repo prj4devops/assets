@@ -1,3 +1,4 @@
+#!/bin/bash
 helm install jenkins \
 --set persistence.existingClaim=jenkins \
 --set master.adminPassword=admin \
@@ -5,7 +6,7 @@ helm install jenkins \
 --set master.tolerations[0].key=node-role.kubernetes.io/master \
 --set master.tolerations[0].effect=NoSchedule \
 --set master.tolerations[0].operator=Exists \
---set master.runAsUser=0 \
---set master.fsGroup=0 \
+--set master.runAsUser=1000 \
+--set master.fsGroup=1000 \
 --version=2.7.1 \
 jenkins/jenkins
