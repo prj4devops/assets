@@ -5,5 +5,7 @@ helm install jenkins \
 --set master.tolerations[0].key=node-role.kubernetes.io/master \
 --set master.tolerations[0].effect=NoSchedule \
 --set master.tolerations[0].operator=Exists \
---version 1.27.0 \
-stable/jenkins
+--set master.runAsUser=0 \
+--set master.fsGroup=0 \
+--version=2.7.1 \
+jenkins/jenkins
