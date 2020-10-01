@@ -8,5 +8,6 @@ helm install jenkins \
 --set master.tolerations[0].operator=Exists \
 --set master.runAsUser=1000 \
 --set master.fsGroup=1000 \
+--set master.tag= 2.249.1-lts-centos7 \
 --version=2.7.1 \
 jenkins/jenkins
