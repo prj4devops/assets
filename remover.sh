@@ -1,5 +1,5 @@
 #!/bin/bash
-ip link delete vhost
-ip link delete nginx
 ip netns delete ns-nginx
-runc delete nginx-container
+ip link delete nginx
+ip link delete vhost
+yum erase bridge-utils -y
