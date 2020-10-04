@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env bash
 cd deployment
 echo "----- before deploy"
 kustomize edit add label deploy:$1 -f
