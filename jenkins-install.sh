@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 helm install jenkins \
 --set persistence.existingClaim=jenkins \
 --set master.adminPassword=admin \
