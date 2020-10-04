@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 yum install -y bridge-utils
 brctl addbr nginx
 ip link set nginx up
