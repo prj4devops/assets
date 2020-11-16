@@ -24,3 +24,17 @@ spec:
       containers:
       - image: 192.168.1.10:8443/echo-ip:latest
         name: echo-ip
+---
+kind: Service
+metadata:
+  labels:
+    app: echo-ip
+  name: lb-echo-ip
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: echo-ip
+  type: LoadBalancer
