@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: echo-ip-freestyle
+  name: echo-ip-freestyle
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo-ip-freestyle
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: echo-ip-freestyle
+    spec:
+      containers:
+      - image: 192.168.1.10:8443/echo-ip:latest
+        name: echo-ip
