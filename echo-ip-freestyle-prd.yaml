@@ -25,6 +25,7 @@ spec:
       - image: 192.168.1.10:8443/echo-ip:latest
         name: echo-ip
 ---
+apiVersion: v1
 kind: Service
 metadata:
   labels:
