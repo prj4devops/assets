@@ -1,7 +1,11 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     app: echo-ip-freestyle
   name: echo-ip-freestyle
