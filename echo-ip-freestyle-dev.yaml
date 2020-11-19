@@ -1,15 +1,10 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: dev
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: echo-ip-freestyle
   name: echo-ip-freestyle
-  namespace: dev
+  namespace: development
 spec:
   replicas: 1
   selector:
@@ -17,22 +12,21 @@ spec:
       app: echo-ip-freestyle
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: echo-ip-freestyle
     spec:
       containers:
       - image: 192.168.1.10:8443/echo-ip:latest
         name: echo-ip
-      readinessProbe:
-        failureThreshold: 3
-        httpGet:
-          path: /
-          port: 80
-          scheme: HTTP
-        periodSeconds: 10
-        successThreshold: 1
-        timeoutSeconds: 1        
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1        
 ---
 apiVersion: v1
 kind: Service
@@ -40,6 +34,7 @@ metadata:
   labels:
     app: echo-ip
   name: lb-echo-ip
+  namespace: development
 spec:
   ports:
   - port: 8080
