@@ -5,7 +5,7 @@ metadata:
   labels:
     app: echo-ip-freestyle
   name: echo-ip-freestyle
-  namespace: prd
+  namespace: production
 spec:
   replicas: 1
   selector:
@@ -35,7 +35,7 @@ metadata:
   labels:
     app: echo-ip
   name: lb-echo-ip
-  namespace: prd
+  namespace: production
 spec:
   ports:
   - port: 8080
