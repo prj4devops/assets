@@ -18,9 +18,9 @@ data:
     global: {}
       slack_api_url: 'https://hooks.slack.com/services/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'
     receivers:
-      - name: slack-monitorning
+      - name: slack-monitoring
         slack_configs:
-         - channel: 'monitorning'
+         - channel: 'monitoring'
            send_resolved: true
     route:
       group_wait: 10s
