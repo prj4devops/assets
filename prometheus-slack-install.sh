@@ -21,7 +21,7 @@ groups:\
   - name: Instances\
     rules:\
       - alert: InstanceDown\
-        expr: rate(kube_deployment_status_replicas{deployment="metric-generator"}[2m]) \> 0\
+        expr: rate\(kube_deployment_status_replicas{deployment="metric-generator"}[2m]\) \> 0\
         for: 2m\
         annotations:\
           description: 'replicas'\
