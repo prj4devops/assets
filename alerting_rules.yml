@@ -1,0 +1,10 @@
+serverFiles:
+  alerting_rules.yml:
+    groups:
+    - name: Replica
+      rules:
+      - alert: ReplicaChanged
+        expr: rate(kube_deployment_status_replicas{deployment='metric-generator'}[2m]) == 0
+        annotations:
+          description: 'replicas'
+          summary: 'Instance {{ $labels.instance }} down'
