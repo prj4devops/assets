@@ -18,6 +18,7 @@ helm install prometheus \
 --set pushgateway.enabled=false \
 --set serverFiles."alerting_rules\.yml"=\
 '''
+---
 groups:
   - name: Instances
     rules:
