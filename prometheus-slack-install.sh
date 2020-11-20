@@ -16,4 +16,15 @@ helm install prometheus \
 --set alertmanager.configMapOverrideName=alertmanager-slack \
 --version 11.6.0 \
 --set pushgateway.enabled=false \
+--set serverFiles.alerting_rules.yml='''
+groups:
+  - name: Instances
+    rules:
+      - alert: InstanceDown
+        expr: rate(kube_deployment_status_replicas{deployment="metric-generator"}[2m]) > 0
+        for: 2m
+        annotations:
+          description: 'replicas'
+          summary: 'Instance {{ $labels.instance }} down'
+''' \
 prometheus-community/prometheus
