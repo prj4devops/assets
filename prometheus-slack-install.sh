@@ -22,6 +22,7 @@ groups:
     rules:
       - alert: scaling
         expr: rate(kube_deployment_status_replicas{deployment="metric-generator"}[2m]) > 0
+        for: 2m
         annotations:
           description: 'replicas'
           summary: "Instance {{ \$labels.instance }} down"
