@@ -25,6 +25,6 @@ groups:
         for: 2m
         annotations:
           description: 'replicas'
-          summary: "Instance {{ $labels.instance }} down"
+          summary: "Instance {{ \$labels.instance }} down"
 ''' \
 prometheus-community/prometheus
