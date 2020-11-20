@@ -20,7 +20,7 @@ data:
     receivers:
       - name: slack-monitoring
         slack_configs:
-         - channel: 'monitoring'
+         - channel: '#monitoring'
            send_resolved: true
     route:
       group_wait: 10s
