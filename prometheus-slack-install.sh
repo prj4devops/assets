@@ -16,5 +16,5 @@ helm install prometheus \
 --set alertmanager.configMapOverrideName=alertmanager-slack \
 --version 11.6.0 \
 --set pushgateway.enabled=false \
--f alerting_rules.yml
+-f alerting_rules.yml \
 prometheus-community/prometheus
