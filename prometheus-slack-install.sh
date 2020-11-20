@@ -16,7 +16,7 @@ helm install prometheus \
 --set alertmanager.configMapOverrideName=alertmanager-slack \
 --version 11.6.0 \
 --set pushgateway.enabled=false \
---set serverFiles.alerting_rules.yml='''groups:
+--set serverFiles.alerting_rules_slack.yml='''groups:
   - name: Instances
     rules:
       - alert: InstanceDown
