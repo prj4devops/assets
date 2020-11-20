@@ -24,7 +24,7 @@ groups:
         expr: rate(kube_deployment_status_replicas{deployment="metric-generator"}[2m]) > 0
         for: 2m
         annotations:
-          description: "replicas"
+          description: 'replicas'
           summary: "Instance {{ \$labels.instance }} down"
 ''' \
 prometheus-community/prometheus
