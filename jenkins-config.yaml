@@ -35,3 +35,7 @@ jenkins:
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true
+  disabledAdministrativeMonitors:
+  - "jenkins.diagnostics.RootUrlNotSetMonitor"
+  - "jenkins.security.UpdateSiteWarningsMonitor"
+  - "io.jenkins.plugins.casc.ObsoleteConfigurationMonitor"      
