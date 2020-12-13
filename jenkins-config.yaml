@@ -60,7 +60,7 @@ jenkins:
         yamlMergeStrategy: "override"
   crumbIssuer:
     standard:
-      excludeClientIPFromCrumb: true
+      excludeClientIPFromCrumb: false
   disableRememberMe: false
   disabledAdministrativeMonitors:
   - "hudson.model.UpdateCenter$CoreUpdateMonitor"
@@ -122,8 +122,3 @@ tool:
     installations:
     - home: "git"
       name: "Default"
-groovy:
-  - script: >
-      import jenkins.model.Jenkins
-      def instance = Jenkins.instance
-      instance.setCrumbIssuer(null)
