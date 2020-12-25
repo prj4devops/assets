@@ -22,6 +22,8 @@ jenkins:
       templates:
       - containers:
         - args: "^${computer.jnlpmac} ^${computer.name}"
+          command:
+          - ""
           envVars:
           - envVar:
               key: "JENKINS_URL"
@@ -44,7 +46,7 @@ jenkins:
         name: "default"
         nodeUsageMode: NORMAL
         podRetention: "never"
-        runAsGroup: "993"
+        runAsGroup: "1000"
         runAsUser: "1000"
         serviceAccount: "jenkins"
         volumes:
@@ -60,7 +62,7 @@ jenkins:
         yamlMergeStrategy: "override"
   crumbIssuer:
     standard:
-      excludeClientIPFromCrumb: false
+      excludeClientIPFromCrumb: true
   disableRememberMe: false
   disabledAdministrativeMonitors:
   - "hudson.model.UpdateCenter$CoreUpdateMonitor"
